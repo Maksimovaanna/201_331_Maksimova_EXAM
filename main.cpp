@@ -1,7 +1,4 @@
 #include "mainwindow.h"
-#include "debug_window.h"
-#include "hash_window.h"
-
 #include <QApplication>
 #include <QDebug>
 #include <windows.h>

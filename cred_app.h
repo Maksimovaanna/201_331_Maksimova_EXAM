@@ -26,6 +26,9 @@ public:
     ~cred_app();
     void createUI(const QStringList &headers);
     std::string check_pincode(QString user_code);
+    QString mass[12]; //массив, в котором хранятся рандомные числа от 0 до 9999
+    int summary; //сумма, выводимая на экран
+    int k; //счетчик, позволяющий складывать числа ровно 4 раза
 
 private:
     Ui::cred_app *ui;

@@ -3,7 +3,6 @@
 
 #include <QMainWindow>
 #include "cred_app.h"
-#include "debug_window.h"
 
 //using namespace std;
 
@@ -26,7 +25,6 @@ private slots:
 private:
     Ui::MainWindow *ui;
     cred_app *cred;
-    debug_window *deb;
 
 };
 #endif // MAINWINDOW_H
