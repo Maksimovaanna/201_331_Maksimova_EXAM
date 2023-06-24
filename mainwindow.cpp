@@ -25,23 +25,20 @@ MainWindow::~MainWindow()
 void MainWindow::on_Ok_clicked()
 {
     //если хеш пин-кода совпадет с имеющимся, то вход в приложение будет успешным
-    if (ui->code_text->text() == '1234')
+    if (ui->code_text->text() == "1234")
     {
         qDebug() << QString::fromStdString(cred->check_pincode(ui->code_text->text()));
         this->close();
-        cred->open_json();
         cred->show();
         cred->createUI(QStringList() << trUtf8("Number")
-                        << trUtf8("Site")
-                        << trUtf8("Login")
-                        << trUtf8("Password")
         );
-
-
     }
 
     else
     {
         ui->error->setVisible(true);
     }
+
+
+
 }

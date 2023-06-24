@@ -10,13 +10,22 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    cred_app.cpp \
+    debug_window.cpp \
+    hash_window.cpp \
     main.cpp \
     mainwindow.cpp \
 
 HEADERS += \
+    cred_app.h \
+    debug_window.h \
+    hash_window.h \
     mainwindow.h
 
 FORMS += \
+    cred_app.ui \
+    debug_window.ui \
+    hash_window.ui \
     mainwindow.ui
 
 # Default rules for deployment.

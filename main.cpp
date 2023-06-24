@@ -1,4 +1,6 @@
 #include "mainwindow.h"
+#include "debug_window.h"
+#include "hash_window.h"
 
 #include <QApplication>
 #include <QDebug>
@@ -15,7 +17,6 @@ int main(int argc, char *argv[])
 
     QApplication a(argc, argv);
     setlocale(LC_ALL, "rus");
-
 
     MainWindow w;
     w.show();
