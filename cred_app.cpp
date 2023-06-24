@@ -15,6 +15,7 @@
 #include <ctime>
 #include <QMessageBox>
 
+
 cred_app::cred_app(QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::cred_app)
@@ -29,7 +30,6 @@ std::string cred_app::check_pincode(QString user_code){
     hash = hash.toBase64();
     QString q_hash = QString(hash);
     std::string str_hash = q_hash.toStdString().substr(1,32);
-    //qDebug() << "hash" << q_hash;
     return str_hash;
 }
 
@@ -58,7 +58,6 @@ bool cred_app::eventFilter(QObject* watched, QEvent* event)
 {
     if(event->type() == QEvent::MouseButtonPress)
     {
-
             if (QLineEdit* lineEdit = qobject_cast<QLineEdit*>(watched))
             {
                 Q_FOREACH(const QLineEdit* i, findChildren<QLineEdit*>())
@@ -98,18 +97,14 @@ bool cred_app::eventFilter(QObject* watched, QEvent* event)
                                 QString text = QString::number(summary);
                                 msgBox.setText(text);
                                 msgBox.exec();
-                                numbers();
+                                numbers(); //происходит сброс игры
+                                ui->summ->setText("");
                             }
                         }
                     }
                 }
          }
     }
-
-
-
-
-
     return QObject::eventFilter(watched, event);
 }
 

@@ -16,7 +16,6 @@ namespace Ui { class cred_app; }
 QT_END_NAMESPACE
 
 
-
 class cred_app : public QDialog
 {
     Q_OBJECT
@@ -34,7 +33,6 @@ private:
     Ui::cred_app *ui;
     QLineEdit *lineEdit_number;
     void numbers();
-    void add_cred(QString site, QString login, QString password);
     bool eventFilter(QObject* watched, QEvent* event);
 
 
@@ -42,7 +40,6 @@ signals:
     void ShowMW();//функция для возврата на окно MW
 
 private slots:
-    //void on_pass_manager_cellDoubleClicked(int row, int column);
 
 };
 

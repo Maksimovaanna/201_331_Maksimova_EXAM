@@ -3,6 +3,7 @@
 #include <QDebug>
 #include <QJsonDocument>
 #include <windows.h>
+#include <QFile>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -22,11 +23,18 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_Ok_clicked()
 {
+    QFile file("hash.txt");
+    file.open(QIODevice::ReadOnly | QIODevice::Text);
+
+    //считываем файл для шифрования
+    QString value = file.readAll();
+    std::string pin = value.toUtf8().constData();
     //если хеш пин-кода совпадет с имеющимся, то вход в приложение будет успешным
-    if (ui->code_text->text() == "1234")
+    if (cred->check_pincode(ui->code_text->text()) == pin)
     {
-        qDebug() << QString::fromStdString(cred->check_pincode(ui->code_text->text()));
+        //qDebug() << QString::fromStdString(cred->check_pincode(ui->code_text->text()));
         this->close();
+        file.close();
         cred->show();
         cred->createUI(QStringList() << "Number");
     }
